@@ -1,0 +1,5 @@
+
+AuthUserFile "/home/xb008160/flegrowth.co.jp/htpasswd/news/wp-admin/.htpasswd"
+AuthName "Member Site"
+AuthType BASIC
+require valid-user
