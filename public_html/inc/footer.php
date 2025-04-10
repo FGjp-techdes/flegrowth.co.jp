@@ -1,6 +1,6 @@
     <div class="f-clm">
         <div class="f-logo">
-            <a href="/"><img src="/img/cmn/logo_vw.svg" alt="FleGrowth"></a>
+            <a href="/"><img src="./img/cmn/logo_vw.svg" alt="FleGrowth"></a>
         </div>
         <ul class="f-menu linkanime-wh">
             <li><a href="/company/">会社概要</a></li>

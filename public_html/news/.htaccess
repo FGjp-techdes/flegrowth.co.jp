@@ -1,8 +1,4 @@
 
-
-#SITEGUARD_PLUGIN_SETTINGS_START
-#SITEGUARD_PLUGIN_SETTINGS_END
-
 # BEGIN WordPress
 # "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
 # 動的に生成され、WordPress フィルターによってのみ修正が可能です。
@@ -10,11 +6,11 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /news/
+RewriteBase /flegrowth.co.jp/public_html/news/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /news/index.php [L]
+RewriteRule . /flegrowth.co.jp/public_html/news/index.php [L]
 </IfModule>
 
 # END WordPress

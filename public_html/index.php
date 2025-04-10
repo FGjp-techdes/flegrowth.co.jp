@@ -5,11 +5,12 @@
 $pagetitle = '株式会社FleGrowth';
 $description = '確かな技術力と豊富な実績の基で、信頼性の高いサービス・ソリューションを創造いたします。';
 $is_home = true;
-include $_SERVER['DOCUMENT_ROOT'] .'/inc/vars.php';
+include $_SERVER['DOCUMENT_ROOT'] .'/flegrowth.co.jp/public_html/inc/vars.php';
 include $doc_root .'/inc/head.php';
 // WP読み込み（トップのみ）
 include './news/wp-load.php'; 
 ?>
+
 </head>
 <body>
 <?php include $doc_root .'/inc/cmn-func.php'; ?>

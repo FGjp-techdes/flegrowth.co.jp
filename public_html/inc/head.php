@@ -12,11 +12,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="/img/cmn/favicon.ico">
     <link rel="apple-touch-icon" href="/img/cmn/apple-touch-icon.png" sizes="180x180">
-    <link rel="stylesheet" href="/css/style.css?<?php echo filemtime($doc_root .'/css/style.css'); ?>">
+    <link rel="stylesheet" href="./css/style.css?<?php echo filemtime($doc_root .'/css/style.css'); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Noto+Sans+JP:wght@400;500;700&family=Questrial&display=swap">
-    <script defer src="/js/cmn.js?<?php echo filemtime($doc_root .'/js/cmn.js'); ?>"></script>
+    <script defer src="./js/cmn.js?<?php echo filemtime($doc_root .'/js/cmn.js'); ?>"></script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -25,8 +25,8 @@
     })(window,document,'script','dataLayer','GTM-5HSH9KN');</script>
     <!-- End Google Tag Manager -->
     <!-- Swiper -->
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
-    <script src="/js/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <script src="./js/swiper-bundle.min.js"></script>
     <!-- aos.js -->
-    <link href="/css/aos.css" rel="stylesheet">
-    <script src="/js/aos.js"></script>
+    <link href="./css/aos.css" rel="stylesheet">
+    <script src="./js/aos.js"></script>

@@ -1,9 +1,9 @@
 <header id="header"<?php echo isset($is_home) ? ' class="top"': '' ?>>
 <?php
 if (isset($is_home)) {
-    echo "<h1 class=\"h-logo\"><a href=\"/\"><img src=\"/img/cmn/logo_vw.svg\" alt=\"FleGrowth\" class=\"logo_vw\"><img src=\"/img/cmn/logo_w.svg\" alt=\"FleGrowth\" class=\"logo_h\"></a></h1>";
+    echo "<h1 class=\"h-logo\"><a href=\"/\"><img src=\"./img/cmn/logo_vw.svg\" alt=\"FleGrowth\" class=\"logo_vw\"><img src=\"./img/cmn/logo_w.svg\" alt=\"FleGrowth\" class=\"logo_h\"></a></h1>";
 }else{
-    echo "<p class=\"h-logo\"><a href=\"/\"><img src=\"/img/cmn/logo_v.svg\" alt=\"FleGrowth\" class=\"logo_v\"><img src=\"/img/cmn/logo_w.svg\" alt=\"FleGrowth\" class=\"logo_h\"></a></p>";
+    echo "<p class=\"h-logo\"><a href=\"/\"><img src=\"./img/cmn/logo_v.svg\" alt=\"FleGrowth\" class=\"logo_v\"><img src=\"./img/cmn/logo_w.svg\" alt=\"FleGrowth\" class=\"logo_h\"></a></p>";
 }
 ?>
 

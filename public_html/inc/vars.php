@@ -1,6 +1,6 @@
 <?php
 //ドキュメントルートのパス
-$doc_root = $_SERVER['DOCUMENT_ROOT'] ;
+$doc_root = $_SERVER['DOCUMENT_ROOT'] . "/flegrowth.co.jp/public_html";
 
 //サーバーが $_SERVER['HTTPS'] の値を返さない場合の対策
 if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) and $_SERVER['HTTP_X_FORWARDED_PROTO'] === "https") {

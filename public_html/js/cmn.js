@@ -1,4 +1,4 @@
-
+console.log('cmn.js');
 
 // Loading =======================================
 window.onload = function() {
