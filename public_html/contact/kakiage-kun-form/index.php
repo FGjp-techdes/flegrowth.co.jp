@@ -59,7 +59,7 @@ include $doc_root .'/inc/head.php';
             <li><a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/">書きあげクン</a></li>
             <li class="current">無料トライアル お申込みフォーム</li>
         </ul>
-        <h1 class="section-head-ttl wrap">書きあげくん無料トライアル<br>申し込みフォーム</h1>
+        <h1 class="section-head-ttl wrap">書きあげクン無料トライアル<br>申し込みフォーム</h1>
         <p class="section-head-subttl wrap">Kakiage-kun Trial</p>
     </section>
     <!-- Overhang layout -->
@@ -108,7 +108,7 @@ include $doc_root .'/inc/head.php';
             <!-- 既存のフォーム部分 -->
             <h2 class="kakiage-description__title">トライアルのお申込み</h2>
             <div class="form-step"><img src="<?= $host_url; ?>/img/contact/form1.svg" alt="フォーム入力"></div>
-            <p>書きあげくん無料トライアルへの申し込みは下記フォームよりお願いいたします。<br>
+            <p>書きあげクン無料トライアルへの申し込みは下記フォームよりお願いいたします。<br>
             内容を確認の上、担当者よりご連絡させていただきます。</p>
             <?php
             $form = new Form('form');
