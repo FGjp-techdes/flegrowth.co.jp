@@ -297,7 +297,8 @@ include $doc_root .'/inc/head.php';
                 <p class="btm-link-desc">業務効率化と正確性を両立する革新的なAI文字起こしソリューション「書きあげクン」を、ぜひご検討ください。<br>
                 ご不明な点はお気軽にお問い合わせください。利用用途やお困ごとに応じて最適なご提案をいたします。</p>
                 <div class="kakiage_message_btn">
-                    <a href="<?= $host_url; ?>/contact/kakiage-kun-form/">お問合せ</a>
+                    <a href="<?= $host_url; ?>/contact/kakiage-kun-form/">無料トライアルお申し込み</a>
+                    <a href="<?= $host_url; ?>/contact/form/">お問合せ</a>
                 </div>
             </li>
         </ul>

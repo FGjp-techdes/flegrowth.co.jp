@@ -4,7 +4,7 @@
 <?php
 $pagetitle = '個人情報保護方針';
 $description = '個人情報保護方針に関するページ。確かな技術力と豊富な実績の基で、信頼性の高いサービス・ソリューションを創造いたします。';
-include $_SERVER['DOCUMENT_ROOT'] .'/inc/vars.php';
+include '../inc/vars.php';
 include $doc_root .'/inc/head.php';
 ?>
 </head>
