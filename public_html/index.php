@@ -5,9 +5,8 @@
 $pagetitle = '株式会社FleGrowth';
 $description = '確かな技術力と豊富な実績の基で、信頼性の高いサービス・ソリューションを創造いたします。';
 $is_home = true;
-include $_SERVER['DOCUMENT_ROOT'] .'/flegrowth.co.jp/public_html/inc/vars.php';
-include $doc_root .'/inc/head.php';
-// WP読み込み（トップのみ）
+include './inc/vars.php';
+include $doc_root .'/inc/head.php';// WP読み込み（トップのみ）
 include './news/wp-load.php'; 
 ?>
 
@@ -102,7 +101,7 @@ include './news/wp-load.php';
             <h2 class="headttl" data-aos="fade-down">ワンストップで事業を成功に導く<br>FleGrowthの提供サービス</h2>
             <ul class="service-list">
                 <li class="list-fintech" data-aos="zoom-in-up">
-                    <a href="/service/fintech/">
+                    <a href="<?= $ogp_url; ?>/service/fintech/">
                         <p class="service-list-subttl">Fintech Service</p>
                         <h3>フィンテックサービス</h3>
                         <p>秒間処理能力2万件を超える自社開発の約定エンジンを保有。<br>
@@ -111,7 +110,7 @@ include './news/wp-load.php';
                     </a>
                 </li>
                 <li class="list-dx" data-aos="zoom-in-up">
-                    <a href="/service/dx-web/">
+                    <a href="<?= $ogp_url; ?>/service/dx-web/">
                         <p class="service-list-subttl">DX Support / Web Development</p>
                         <h3>DX支援・Web制作</h3>
                         <p>金融のみならず、物流や医療、不動産などの幅広い分野でDX化による業務フロー改善やシステムの導入および人材の育成などを包括的に支援し、デジタル化による業務効率の向上、ミスや事故の低減、働きやすい環境づくりをお手伝いいたします。<br>
@@ -119,7 +118,7 @@ include './news/wp-load.php';
                     </a>
                 </li>
                 <li class="list-sales" data-aos="zoom-in-up">
-                    <a href="/service/sales/">
+                    <a href="<?= $ogp_url; ?>/service/sales/">
                         <p class="service-list-subttl">Sales Consulting</p>
                         <h3>セールスコンサルティング</h3>
                         <p>「自社のプロダクトを世に広めたい」「セールスチームの営業戦略を見直し集客を拡大したい」そうしたニーズに応えるため、商品の特性に沿った「ターゲット・攻め方」の立案から、営業資料案・トークスクリプトの作成、営業メンバーの教育研修といった実践まで、幅広く支援いたします。</p>
@@ -139,17 +138,17 @@ include './news/wp-load.php';
                 <span>FleGrowth Member Work Style</span>
             </p>
             <ul class="card-list wrap">
-                <li><a href="/recruit/interview01/">
+                <li><a href="<?= $ogp_url; ?>/recruit/interview01/">
                     <p class="card-list-index">01. Tokyo</p>
                     <p class="card-list-index">Sales</p>
                     <p class="card-list-comment">やってみたいと思うことに挑戦できることが、FleGrowthで働く魅力</p>
                 </a></li>
-                <li><a href="/recruit/interview02/">
+                <li><a href="<?= $ogp_url; ?>/recruit/interview02/">
                     <p class="card-list-index">02. Tokyo</p>
                     <p class="card-list-index">Bridge SE</p>
                     <p class="card-list-comment">海外の開発拠点との「架け橋」になる面白さ</p>
                 </a></li>
-                <li><a href="/recruit/interview03/">
+                <li><a href="<?= $ogp_url; ?>/recruit/interview03/">
                     <p class="card-list-index">03. Tokyo</p>
                     <p class="card-list-index">Data Scientist</p>
                     <p class="card-list-comment">新しいことへ挑戦しやすい会社だな、と感じています</p>
@@ -172,7 +171,7 @@ include './news/wp-load.php';
             </svg>
         </p>
         <div class="top-recruit-join">
-            <a href="/recruit/">
+            <a href="<?= $ogp_url; ?>/recruit/">
                 <p class="top-recruit-join-cap">Join Our Team!</p>
                 <h2>採用情報</h2>
                 <p class="top-recruit-join-txt">スピード感を持って挑戦し、共に成長していきたいメンバーを求めています。<br>私たちは成長の源泉でもあるチャレンジマインドや、フラットで挑戦しやすい環境を大切にしています。</p>
@@ -185,7 +184,7 @@ include './news/wp-load.php';
         <div class="top-news-ttl">
             <p class="subttl">NEWS</p>
             <h2 class="headttl">お知らせ</h2>
-            <a href="/news/">View All</a>
+            <a href="<?= $ogp_url; ?>/news/">View All</a>
         </div>
         <div class="top-news-cont">
             <ul class="top-news-list">

@@ -1,30 +1,43 @@
 <?php
-//ドキュメントルートのパス
-$doc_root = $_SERVER['DOCUMENT_ROOT'] . "/flegrowth.co.jp/public_html";
+// ローカル環境かどうかの判定
+$is_local = strpos($_SERVER['HTTP_HOST'], 'localhost') !== false;
 
-//サーバーが $_SERVER['HTTPS'] の値を返さない場合の対策
+// ベースパスの設定
+$base_path = $is_local ? '/flegrowth.co.jp/public_html' : '';
+
+// ドキュメントルートのパス
+$doc_root = $_SERVER['DOCUMENT_ROOT'] . $base_path;
+
+// サーバーが $_SERVER['HTTPS'] の値を返さない場合の対策
 if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) and $_SERVER['HTTP_X_FORWARDED_PROTO'] === "https") {
-  $_SERVER['HTTPS'] = 'on';
+    $_SERVER['HTTPS'] = 'on';
 }
 
-//Home の URL の組み立て（例 http://exmaple.com または https://exmaple.com）
-$host_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://'). $_SERVER['HTTP_HOST'];
+// プロトコルの設定
+$protocol = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://');
 
-//URIの取得
+// ホストの設定
+$host = $_SERVER['HTTP_HOST'];
+
+// URIの取得と正規化
 $request_uri = $_SERVER['REQUEST_URI'];
+if ($is_local) {
+    // ローカル環境では base_path を request_uri から除去
+    $request_uri = str_replace($base_path, '', $request_uri);
+}
 
-//サイト名
+// 各URLの組み立て
+$host_url = $protocol . $host . $base_path;
+$ogp_url = $protocol . $host . ($is_local ? $base_path : '') . $request_uri;
+
+// サイト名
 $site_name = "株式会社FleGrowth";
 
-//TITILE
+// TITLE
 if (isset($is_home)) {
-  $title = $pagetitle;
-}else{
-  $title = $pagetitle."|".$site_name;
+    $title = $pagetitle;
+} else {
+    $title = $pagetitle."|".$site_name;
 }
-
-//OGP URL
-$ogp_url = $host_url.$request_uri;
-
 
 ?>
