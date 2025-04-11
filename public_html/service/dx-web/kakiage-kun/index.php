@@ -4,7 +4,7 @@
 <?php
 $pagetitle = '書きあげクン';
 $description = '革新的なAI文字起こしソリューション『書きあげクン』。大量の音声ファイルを短時間で高精度にテキスト化し、議事録要約機能で要点を自動整理。業務効率化と生産性向上をサポートします。';
-include $_SERVER['DOCUMENT_ROOT'] .'/inc/vars.php';
+include '../../../inc/vars.php';
 include $doc_root .'/inc/head.php';
 ?>
 </head>
@@ -25,7 +25,7 @@ include $doc_root .'/inc/head.php';
             <li class="current">書きあげクン</li>
         </ul>
         <p class="section-head-cate wrap">KAKIAGE KUN</p>
-        <h1 class="section-head-ttl wrap"><img src="/img/service/kakiage_logo.svg" alt="書きあげクン" style="width: 75vw; max-width:400px"></h1>
+        <h1 class="section-head-ttl wrap"><img src="<?= $host_url; ?>/img/service/kakiage_logo.svg" alt="書きあげクン" style="width: 75vw; max-width:400px"></h1>
         <!-- <p class="section-head-msg wrap">（説明文あれば挿入）</p> -->
         <p class="section-head-catch">Create<br>Highly Reliable Services<br>and Solutions</p>
     </section>
@@ -33,11 +33,11 @@ include $doc_root .'/inc/head.php';
     <!-- svg line -->
     <div class="svgline-topright">
         <div class="svgline">
-            <img src="/img/mv/line1.svg" alt="">
-            <img src="/img/mv/line2.svg" alt="">
-            <img src="/img/mv/line3.svg" alt="">
-            <img src="/img/mv/line4.svg" alt="">
-            <img src="/img/mv/line5.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line1.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line2.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line3.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line4.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line5.svg" alt="">
         </div>
     </div>
     <!-- //svg line -->
@@ -53,7 +53,7 @@ include $doc_root .'/inc/head.php';
     <!-- //list menu -->
 
     <section class="kakiage-about sec-bk marker" id="kakiage01">
-        <img src="/img/service/kakiage-icon01.svg" alt="" class="bg-icon">
+        <img src="<?= $host_url; ?>/img/service/kakiage-icon01.svg" alt="" class="bg-icon">
         <h2 class="headttl subttl wrap" data-aos="fade-down">
             <span>「書きあげクン」</span><br>
             <span>革新的なAI文字起こしソリューション</span>
@@ -86,11 +86,11 @@ include $doc_root .'/inc/head.php';
                 </div>
 
                 <div class="kakiage-solution-image">
-                    <img src="/img/service/kakiage-icon-solution01.svg" alt="短期間で大量の文字起こしをしたいけど、どう進めればいい？">
+                    <img src="<?= $host_url; ?>/img/service/kakiage-icon-solution01.svg" alt="短期間で大量の文字起こしをしたいけど、どう進めればいい？">
                 </div>
             </div>
 
-            <img src="/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
+            <img src="<?= $host_url; ?>/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
 
             <p class="kakiage-solution-answer">
                 独自の<b>並列処理技術</b>を用いることで、<br>
@@ -101,7 +101,7 @@ include $doc_root .'/inc/head.php';
         <div class="kakiage-solution" data-aos="fade-left">
             <div class="kakiage-solution-content part2">
                 <div class="kakiage-solution-image">
-                    <img src="/img/service/kakiage-icon-solution02.svg" alt="複数の議事録フォーマットが存在して、作成どうしよう？">
+                    <img src="<?= $host_url; ?>/img/service/kakiage-icon-solution02.svg" alt="複数の議事録フォーマットが存在して、作成どうしよう？">
                 </div>
                 <div class="kakiage-solution-question">
                     <h3 class="fukidashi-left">
@@ -110,7 +110,7 @@ include $doc_root .'/inc/head.php';
                 </div>
             </div>
 
-            <img src="/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
+            <img src="<?= $host_url; ?>/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
 
             <p class="kakiage-solution-answer">
                 書きあげクンのプロンプトノウハウにより、<br>
@@ -129,7 +129,7 @@ include $doc_root .'/inc/head.php';
         <h2 class="headttl subttl" data-aos="fade-down">書きあげクンが選ばれる理由</h2>
         <div class="rec-num-item-wrap">
             <div class="rec-num-item-col3" data-aos="flip-up">
-                <span><img class="kakiage-icon" src="/img/service/kakiage-reason01.webp" alt=""></span>
+                <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-reason01.webp" alt=""></span>
                 <h3>圧倒的な処理スピード</h3>
                 <div class="kakiage-reason-description">
                     <p>
@@ -141,18 +141,18 @@ include $doc_root .'/inc/head.php';
             </div><!-- rec-num-item -->
 
             <div class="rec-num-item-col3" data-aos="flip-up">
-                <span><img class="kakiage-icon" src="/img/service/kakiage-reason02.webp" alt=""></span>
+                <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-reason02.webp" alt=""></span>
                 <h3>「AIサポートデスク」<br>とのシームレスな連携</h3>
                 <div class="kakiage-reason-description">
                     <p>弊社サービス「AIサポートデスク」との連携が可能で、<b>生成AI</b>を活用した<b>効率的な業務支援</b>を実現します。</p>
                     <div class="kakiage-reason-img">
-                        <a href="https://aisupportdesk.jp/" class="kakiage-reason-description-aisupport"><img src="/img/service/kakiage-icon-aisupportdesk.png" alt="AIサポートデスク"></a>
+                        <a href="https://aisupportdesk.jp/" class="kakiage-reason-description-aisupport"><img src="<?= $host_url; ?>/img/service/kakiage-icon-aisupportdesk.png" alt="AIサポートデスク"></a>
                     </div>
                 </div>
             </div><!-- rec-num-item -->
 
             <div class="rec-num-item-col3" data-aos="flip-up">
-                <span><img class="kakiage-icon" src="/img/service/kakiage-reason03.webp" alt=""></span>
+                <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-reason03.webp" alt=""></span>
                 <h3>データセキュリティ</h3>
                 <div class="kakiage-reason-description">
                     <p>
@@ -161,7 +161,7 @@ include $doc_root .'/inc/head.php';
                         お客様の<b>データを厳重に保護</b>し、安心してサービスをご利用いただけます。
                     </p>
                     <div class="kakiage-reason-img">
-                        <img src="/img/service/kakiage-icon-iso.jpg" alt="ISO/IEC 27001認証">
+                        <img src="<?= $host_url; ?>/img/service/kakiage-icon-iso.jpg" alt="ISO/IEC 27001認証">
                     </div>
                 </div>
             </div><!-- rec-num-item -->
@@ -177,7 +177,7 @@ include $doc_root .'/inc/head.php';
                 <!-- <h3>サービス活用例</h3> -->
                 <ul class="fleg-rule-list">
                     <li class="fleg-rule-list-li">
-                        <span><img class="kakiage-icon" src="/img/service/kakiage-function01.svg" alt=""></span>
+                        <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-function01.svg" alt=""></span>
                         <h4>高速処理</h4>
                         <ul class="kakiage-function-description">
                             <li>サーバーの並列処理技術で圧倒的な処理スピードを実現</li>
@@ -186,7 +186,7 @@ include $doc_root .'/inc/head.php';
                         </ul>
                     </li>
                     <li class="fleg-rule-list-li">
-                        <span><img class="kakiage-icon" src="/img/service/kakiage-function02.svg" alt=""></span>
+                        <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-function02.svg" alt=""></span>
                         <h4>多様な音声ファイル対応/録音機能</h4>
                         <ul class="kakiage-function-description">
                             <li>多様な音声形式に対応し、特殊フォーマットも柔軟に処理</li>
@@ -195,7 +195,7 @@ include $doc_root .'/inc/head.php';
                         </ul>
                     </li>
                     <li class="fleg-rule-list-li">
-                        <span><img class="kakiage-icon" src="/img/service/kakiage-function03.svg" alt=""></span>
+                        <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-function03.svg" alt=""></span>
                         <h4>会議の種類に応じた議事録要約機能</h4>
                         <ul class="kakiage-function-description">
                             <li>議事録要約機能で会議の要点を自動整理</li>
@@ -204,7 +204,7 @@ include $doc_root .'/inc/head.php';
                         </ul>
                     </li>
                     <li class="fleg-rule-list-li">
-                        <span><img class="kakiage-icon" src="/img/service/kakiage-function04.svg" alt=""></span>
+                        <span><img class="kakiage-icon" src="<?= $host_url; ?>/img/service/kakiage-function04.svg" alt=""></span>
                         <h4>AIサポートデスクとの連携</h4>
                         <ul class="kakiage-function-description">
                             <li>生成AI搭載のAIサポートデスクとシームレスに連携</li>
@@ -229,22 +229,22 @@ include $doc_root .'/inc/head.php';
                 <h2 class="headttl" data-aos="fade-down">
                     役員会議事録作成の効率化と正確性向上！
                 </h2>
-                <img src="/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
+                <img src="<?= $host_url; ?>/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
                 <p class="kakiage-usage-description">独自の<b>並列処理技術</b>を用いることで、大量の音声データを<b>短時間</b>で処理可能です。</p>
             </div>
             <span class="img-mask1" style="justify-content:end;" data-aos="fade-left">
-                <img src="/img/service/kakiage-image-usage01.webp" alt="イメージ画像">
+                <img src="<?= $host_url; ?>/img/service/kakiage-image-usage01.webp" alt="イメージ画像">
             </span>
         </div>
         <div class="cont2" id="web">
             <span class="img-mask2" data-aos="fade-right">
-                <img src="/img/service/kakiage-image-usage02.webp" alt="イメージ画像">
+                <img src="<?= $host_url; ?>/img/service/kakiage-image-usage02.webp" alt="イメージ画像">
             </span>
             <div class="cont-wrap kakiage-usage-text" data-aos="fade-down">
                 <h2 class="headttl" data-aos="fade-down">
                     複数の議事録フォーマットが存在して、作成どうしよう？
                 </h2>
-                <img src="/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
+                <img src="<?= $host_url; ?>/img/service/kakiage-arrow.svg" alt="▼" class="kakiage-solution-arrow-btm">
                 <p class="kakiage-usage-description">
                     書きあげクンのプロンプトノウハウにより、<br>
                     <b>迅速で正確</b>なアウトプットが得られます。<br>
@@ -297,7 +297,7 @@ include $doc_root .'/inc/head.php';
                 <p class="btm-link-desc">業務効率化と正確性を両立する革新的なAI文字起こしソリューション「書きあげクン」を、ぜひご検討ください。<br>
                 ご不明な点はお気軽にお問い合わせください。利用用途やお困ごとに応じて最適なご提案をいたします。</p>
                 <div class="kakiage_message_btn">
-                    <a href="/contact/form/">お問合せ</a>
+                    <a href="<?= $host_url; ?>/contact/kakiage-kun-form/">お問合せ</a>
                 </div>
             </li>
         </ul>
