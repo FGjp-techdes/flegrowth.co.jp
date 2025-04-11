@@ -4,14 +4,15 @@
 <?php
 $pagetitle = '会社概要';
 $description = '会社概要に関するページ。確かな技術力と豊富な実績の基で、信頼性の高いサービス・ソリューションを創造いたします。';
-include $_SERVER['DOCUMENT_ROOT'] .'/inc/vars.php';
+include '../inc/vars.php';
 include $doc_root .'/inc/head.php';
 ?>
 </head>
 <body>
 <?php include $doc_root .'/inc/cmn-func.php'; ?>
 <!-- header -->
-<?php include $doc_root .'/inc/header.php'; ?>
+<?php include $doc_root .'/inc/header.php';?>
+
 <!-- //header -->
 <!-- main -->
 <main id="main">
@@ -30,11 +31,11 @@ include $doc_root .'/inc/head.php';
     <!-- svg line -->
     <div class="svgline-topright">
         <div class="svgline">
-            <img src="/img/mv/line1.svg" alt="">
-            <img src="/img/mv/line2.svg" alt="">
-            <img src="/img/mv/line3.svg" alt="">
-            <img src="/img/mv/line4.svg" alt="">
-            <img src="/img/mv/line5.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line1.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line2.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line3.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line4.svg" alt="">
+            <img src="<?= $host_url; ?>/img/mv/line5.svg" alt="">
         </div>
     </div>
     <!-- //svg line -->
@@ -44,7 +45,7 @@ include $doc_root .'/inc/head.php';
         <h2 class="headttl" data-aos="fade-down">ロゴへの想い</h2>
         <div class="logo-msg">
             <div class="logo-msg-symbol">
-                <img src="/img/cmn/logo_v.svg" alt="FleGrowth">
+                <img src="<?= $host_url; ?>/img/cmn/logo_v.svg" alt="FleGrowth">
             </div>
             <div class="logo-msg-text">
                 <p>認め合い、成長する</p>
@@ -61,7 +62,7 @@ include $doc_root .'/inc/head.php';
         <h2 class="headttl wrap" data-aos="fade-down">トップメッセージ</h2>
         <div class="top-photo wrap-left" data-aos="fade-up">
             <h3>ITで金融をもっと楽しく、<br>もっと身近に</h3>
-            <img src="/img/company/top-photo.webp" alt="写真：代表取締役社長">
+            <img src="<?= $host_url; ?>/img/company/top-photo.webp" alt="写真：代表取締役社長">
         </div>
         <div class="top-msg-detail wrap">
             <p>
@@ -107,8 +108,8 @@ include $doc_root .'/inc/head.php';
     <!--Waves end-->
     <!-- Mission -->
     <div class="mission" id="mvv">
-        <img src="/img/company/mvv.svg" alt="MVV" class="pc-image">
-        <img src="/img/company/mvv_sp.svg" alt="MVV" class="sp-image">
+        <img src="<?= $host_url; ?>/img/company/mvv.svg" alt="MVV" class="pc-image">
+        <img src="<?= $host_url; ?>/img/company/mvv_sp.svg" alt="MVV" class="sp-image">
     </div>
     <!-- //Mission -->
     <!--Waves Container-->
