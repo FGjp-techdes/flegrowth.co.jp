@@ -63,8 +63,8 @@ if ( empty($error) ) {
 <html lang="ja">
 <head>
 <?php 
-$pagetitle = 'かき上げクン お問合せ - 確認';
-$description = 'かき上げクンについてのお問合せ - 確認画面';
+$pagetitle = '書きあげクン お問合せ - 確認';
+$description = '書きあげクンについてのお問合せ - 確認画面';
 require_once '../../inc/vars.php';
 include($doc_root.'/inc/head.php');
 ?>
@@ -80,11 +80,13 @@ include($doc_root.'/inc/head.php');
     <section class="section-head bk-changer-before bk-change-bk">
         <ul class="breadcrumb">
             <li><a href="<?= $host_url; ?>/">TOP</a></li>
-            <li><a href="<?= $host_url; ?>/kakiage-kun/">かき上げクン</a></li>
-            <li class="current">お問合せ 確認</li>
+            <li><a href="<?= $host_url; ?>/service/">サービス</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/">DX支援・Web制作</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/">書きあげクン</a></li>
+            <li class="current">無料トライアル 確認</li>
         </ul>
-        <h1 class="section-head-ttl wrap">かき上げクン お問合せ</h1>
-        <p class="section-head-subttl wrap">Contact Us</p>
+        <h1 class="section-head-ttl wrap">書きあげクン無料トライアル<br>申し込みフォーム</h1>
+        <p class="section-head-subttl wrap">Kakiage-kun Trial</p>
     </section>
     <!-- Overhang layout -->
     <section class="overhang-wrap sec-bk">

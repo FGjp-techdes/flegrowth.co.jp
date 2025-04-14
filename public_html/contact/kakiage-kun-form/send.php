@@ -34,7 +34,18 @@ $user_count_display = empty($user_count) ? '-' : $user_count . '名';
 
 // メール本文の作成
 $body = <<<EOT
-かき上げクンお問い合わせフォームより以下の内容で申し込みがありました。
+お客様各位
+この度は、弊社の書きあげクンのトライアルにお申し込みいただき、誠にありがとうございます。
+
+◇今後の流れ
+営業担当からのご連絡: 近日中に弊社営業担当者よりお電話またはメールにてご連絡させていただき、ご要望やご利用環境などについてヒアリングさせていただきます。
+トライアル開始: ヒアリング後、ご希望の開始日からトライアルをスタートいたします。
+トライアル期間: 開始日より10日間
+文字起こし時間制限: 8時間
+
+◇ご入力いただいた情報
+ご申込み時にいただきました以下の情報をもとに、お客様の業務に最適化したトライアル環境を準備いたします：
+
 
 【会社名】
 {$company}
@@ -154,8 +165,8 @@ session_destroy();
 <html lang="ja">
 <head>
 <?php 
-$pagetitle = 'かき上げクン お問合せ - 送信完了';
-$description = 'かき上げクンについてのお問合せ - 送信完了画面';
+$pagetitle = '書きあげクン お問合せ - 送信完了';
+$description = '書きあげクンについてのお問合せ - 送信完了画面';
 require_once '../../inc/vars.php';
 include($doc_root.'/inc/head.php');
 ?>
@@ -170,11 +181,13 @@ include($doc_root.'/inc/head.php');
     <section class="section-head bk-changer-before bk-change-bk">
         <ul class="breadcrumb">
             <li><a href="<?= $host_url; ?>/">TOP</a></li>
-            <li><a href="<?= $host_url; ?>/kakiage-kun/">かき上げクン</a></li>
-            <li class="current">お問合せ 送信完了</li>
+            <li><a href="<?= $host_url; ?>/service/">サービス</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/">DX支援・Web制作</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/">書きあげクン</a></li>
+            <li class="current">無料トライアル 送信完了</li>
         </ul>
-        <h1 class="section-head-ttl wrap">かき上げクン お問合せ</h1>
-        <p class="section-head-subttl wrap">Contact Us</p>
+        <h1 class="section-head-ttl wrap">書きあげクン無料トライアル<br>申し込みフォーム</h1>
+        <p class="section-head-subttl wrap">Kakiage-kun Trial</p>
     </section>
     <section class="overhang-wrap sec-bk">
         <span class="overhang-spacer"></span>
@@ -182,14 +195,14 @@ include($doc_root.'/inc/head.php');
             <div class="form-step"><img src="<?= $host_url; ?>/img/contact/form3.svg" alt="送信完了"></div>
             <?php if ($result): ?>
             <h2>送信が完了しました</h2>
-            <p>お問い合わせありがとうございます。<br>
+            <p>書きあげクンのトライアルお申し込みありがとうございます。<br>
             内容を確認の上、担当者より順次ご連絡させていただきます。</p>
             <?php else: ?>
             <h2>送信に失敗しました</h2>
             <p>申し訳ございませんが、時間をおいて再度お試しください。</p>
             <?php endif; ?>
             <div class="form-btn-wrap">
-                <a href="<?= $host_url; ?>/kakiage-kun/" class="btn-back">かき上げクントップへ戻る</a>
+                <a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/" class="btn-back">書きあげクントップへ戻る</a>
             </div>
         </div>
         <span class="overhang-spacer"></span>
