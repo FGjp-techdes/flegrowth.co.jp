@@ -79,8 +79,8 @@ include($doc_root.'/inc/head.php');
     <!-- Head -->
     <section class="section-head bk-changer-before bk-change-bk">
         <ul class="breadcrumb">
-            <li><a href="/">TOP</a></li>
-            <li><a href="/kakiage-kun/">かき上げクン</a></li>
+            <li><a href="<?= $host_url; ?>/">TOP</a></li>
+            <li><a href="<?= $host_url; ?>/kakiage-kun/">かき上げクン</a></li>
             <li class="current">お問合せ 確認</li>
         </ul>
         <h1 class="section-head-ttl wrap">かき上げクン お問合せ</h1>
@@ -136,14 +136,14 @@ include($doc_root.'/inc/head.php');
                 </div>
                 <div class="form-group">
                     <label>月間予測利用時間</label>
-                    <p><?php echo h($monthly_hours); ?>時間</p>
+                    <p><?php echo empty($monthly_hours) ? '-' : h($monthly_hours) . '時間'; ?></p>
                 </div>
                 <div class="form-group">
                     <label>利用予定ユーザー数</label>
-                    <p><?php echo h($user_count); ?>名</p>
+                    <p><?php echo empty($user_count) ? '-' : h($user_count) . '名'; ?></p>
                 </div>
                 <div class="form-btn-wrap">
-                    <button type="button" class="btn-back" onclick="history.back()">修正する</button>
+                    <button type="button" class="btn-back btn-submit-gr" onclick="history.back()">修正する</button>
                     <button type="submit" class="btn-submit">送信する</button>
                 </div>
             </form>

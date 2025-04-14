@@ -898,8 +898,13 @@ a.doc-dl{
     }
 }
 /* ------------ List ------------ */
-.list-nonstyle{
+.list-nonstyle {
     list-style: none;
+}
+
+.list-nonstyle li {
+    padding-left: 0.3em;
+    text-indent: -1.5em;
 }
 .list-tag{
     display: flex;

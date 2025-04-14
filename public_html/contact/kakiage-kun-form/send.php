@@ -28,6 +28,10 @@ $user_count = isset($_SESSION['user_count']) ? $_SESSION['user_count'] : '';
 // マイク必要の有無の文字列を事前に設定
 $need_mic_text = $need_mic ? '必要' : '不要';
 
+// 空の値の場合のデフォルト値を設定
+$monthly_hours_display = empty($monthly_hours) ? '-' : $monthly_hours . '時間';
+$user_count_display = empty($user_count) ? '-' : $user_count . '名';
+
 // メール本文の作成
 $body = <<<EOT
 かき上げクンお問い合わせフォームより以下の内容で申し込みがありました。
@@ -63,10 +67,22 @@ $body = <<<EOT
 {$need_mic_text}
 
 【月間予測利用時間】
-{$monthly_hours}時間
+{$monthly_hours_display}
 
 【利用予定ユーザー数】
-{$user_count}名
+{$user_count_display}
+
+
+◇トライアル終了後について
+トライアル終了前に、継続利用に関するご連絡を致します。ご継続いただける場合は、その旨いただければと存じます。トライアル期間中に作成されたデータは、お手続き完了後もそのままご利用いただけます。
+弊社の書きあげクンが、お客様のお役に立てることを心より願っております。
+何かご不明な点がございましたら、お気軽にお問い合わせください。
+
+-----------------------------------------------------------------------
+株式会社FleGrowth
+〒150-6028　東京都渋谷区恵比寿4-20-3　恵比寿ガーデンプレイスタワー28階
+TEL: 03-6736-9870
+URL: https://flegrowth.co.jp/
 EOT;
 
 try {
@@ -82,23 +98,33 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'kakiagekun-contact@flegrowth.co.jp'; // Gmailアドレス
-    $mail->Password = 'nvyl vodu bnke vbha'; // パスワード メーリングリストのため存在しない
+    $mail->Username = 'kakiagekun-contact@flegrowth.co.jp';
+    $mail->Password = 'nvyl vodu bnke vbha';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587; //SSLの場合 465
     $mail->CharSet = 'UTF-8';
 
-    // 送信元・送信先の設定
+    // 管理者宛てのメール送信
     $mail->setFrom($email, $name);
     $mail->addAddress('kakiagekun-contact@flegrowth.co.jp');
     $mail->addReplyTo($email, $name);
-
-    // メール内容の設定
-    $mail->Subject = '書きあげクン お問い合わせ';
+    $mail->Subject = '書きあげクントライアルお申し込みがありました';
     $mail->Body = $body;
+    $result_admin = $mail->send();
 
-    // メール送信
-    $result = $mail->send();
+    // メールオブジェクトをクリア
+    $mail->clearAddresses();
+    $mail->clearReplyTos();
+
+    // ユーザー宛ての自動返信メール
+    $mail->setFrom('kakiagekun-contact@flegrowth.co.jp', '株式会社FleGrowth');
+    $mail->addAddress($email, $name);
+    $mail->Subject = '書きあげクントライアルお申し込みありがとうございます';
+    $mail->Body = $body;
+    $result_user = $mail->send();
+
+    // 両方のメールが成功した場合のみ true
+    $result = $result_admin && $result_user;
     
     // デバッグ出力を取得
     $debug_output = ob_get_clean();
@@ -143,8 +169,8 @@ include($doc_root.'/inc/head.php');
 <main id="main">
     <section class="section-head bk-changer-before bk-change-bk">
         <ul class="breadcrumb">
-            <li><a href="/">TOP</a></li>
-            <li><a href="/kakiage-kun/">かき上げクン</a></li>
+            <li><a href="<?= $host_url; ?>/">TOP</a></li>
+            <li><a href="<?= $host_url; ?>/kakiage-kun/">かき上げクン</a></li>
             <li class="current">お問合せ 送信完了</li>
         </ul>
         <h1 class="section-head-ttl wrap">かき上げクン お問合せ</h1>
@@ -163,7 +189,7 @@ include($doc_root.'/inc/head.php');
             <p>申し訳ございませんが、時間をおいて再度お試しください。</p>
             <?php endif; ?>
             <div class="form-btn-wrap">
-                <a href="/kakiage-kun/" class="btn-back">かき上げクントップへ戻る</a>
+                <a href="<?= $host_url; ?>/kakiage-kun/" class="btn-back">かき上げクントップへ戻る</a>
             </div>
         </div>
         <span class="overhang-spacer"></span>
