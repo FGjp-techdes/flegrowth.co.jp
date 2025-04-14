@@ -1,4 +1,3 @@
-
 //validationForm クラス と novalidate 属性を指定した form 要素を独自に検証
 document.addEventListener('DOMContentLoaded', () => {
     //validationForm クラスを指定した最初の form 要素を取得
@@ -8,6 +7,39 @@ document.addEventListener('DOMContentLoaded', () => {
     //エラーを表示する span 要素に付与するクラス名
     const errorClassName = 'error-js';
     
+    // 利用規約チェックボックスによる送信ボタンの制御
+    const agreeTermsCheckbox = document.querySelector('input[name="agree_terms"]');
+    const submitButton = document.querySelector('.btn-submit');
+
+    if (submitButton && agreeTermsCheckbox) {
+        // 初期状態でチェックを外し、ボタンを無効化
+        agreeTermsCheckbox.checked = false;
+        submitButton.disabled = true;
+        submitButton.style.opacity = '0.5';
+        submitButton.style.backgroundColor = '#ccc';
+
+        // ページ更新時にチェックを外す
+        window.addEventListener('pageshow', function(event) {
+            agreeTermsCheckbox.checked = false;
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.5';
+            submitButton.style.backgroundColor = '#ccc';
+        });
+
+        // チェックボックスの状態が変更されたときの処理
+        agreeTermsCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+                submitButton.style.backgroundColor = '#0066CC';
+            } else {
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.5';
+                submitButton.style.backgroundColor = '#ccc';
+            }
+        });
+    }
+
     if(validationForm) {
       //required クラスを指定された要素の集まりを取得して変数に代入 
       const requiredElems = document.querySelectorAll('.required');
@@ -27,30 +59,28 @@ document.addEventListener('DOMContentLoaded', () => {
       //className ：エラーメッセージの要素に追加するクラス名
       //defaultMessage：デフォルトのエラーメッセージ
       const addError = (elem, className, defaultMessage) => {
-        //戻り値として返す変数 errorMessage にデフォルトのエラーメッセージを代入
         let errorMessage = defaultMessage;
-        //要素に data-error-xxxx 属性が指定されていれば（xxxx は第2引数の className）
         if(elem.hasAttribute('data-error-' + className)) { 
-          //data-error-xxxx  属性の値を取得
           const dataError = elem.getAttribute('data-error-' + className);
-          //data-error-xxxx  属性の値が label であれば
-          if(dataError) {// data-error-xxxx  属性の値が label 以外の場合
-            //data-error-xxxx  属性の値をエラーメッセージとする
+          if(dataError) {
             errorMessage = dataError;
           }
         }
-        //初回の送信前にはエラー表示はせず、送信時及び送信後の再入力時にエラーを表示
         if(!validateAfterFirstSubmit) {
-          //span 要素を生成
           const errorSpan = document.createElement('span');
-          //error 及び引数に指定されたクラスを追加（設定）
           errorSpan.classList.add(errorClassName, className);
-          //aria-live 属性を設定
           errorSpan.setAttribute('aria-live', 'polite');
-          //引数に指定されたエラーメッセージを設定
           errorSpan.textContent = errorMessage;
-          //elem の親要素の子要素として追加
-          elem.parentNode.appendChild(errorSpan);
+          
+          // ラベル要素を取得
+          const label = elem.parentNode.querySelector('label');
+          if (label) {
+            // ラベルの中に追加
+            label.appendChild(errorSpan);
+          } else {
+            // ラベルが見つからない場合は従来通り親要素に追加
+            elem.parentNode.appendChild(errorSpan);
+          }
         }
       }
    
@@ -69,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if(checkedRadio === null) {
            if(!errorSpan) {
              //addError() を使ってエラーメッセージ表示する span 要素を生成して追加
-              addError(elem, className, '選択は必須です');
+              addError(elem, className, '※選択は必須です');
             }
             return true;
           } else{ //いずれかのラジオボタンが選択されている場合
@@ -87,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const checkedCheckbox = elem.parentElement.querySelector('input[type="checkbox"]:checked');
           if(checkedCheckbox === null) {
             if(!errorSpan) {
-              addError(elem, className, '選択は必須です');
+              addError(elem, className, '※選択は必須です');
             }
             return true;
           }else{
@@ -105,11 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if(!errorSpan) {
               if(elem.tagName === 'SELECT') {
                 //セレクトボックスの場合
-                addError(elem, className, '選択は必須です');
-              }else{ 
+                addError(elem, className, '※選択は必須です');
+              }else{
                 //テキストフィールドやテキストエリアの場合
-                addError(elem, className, '入力は必須です');
-              } 
+                addError(elem, className, '※入力は必須です');
+              }
             }
             return true;
           }else{
@@ -312,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //data-maxlength属性を指定した要素でshowCountクラスが指定されていれば入力文字数を表示
       showCountElems.forEach( (elem) => {
         //data-maxlength 属性の値を取得
-        const dataMaxlength = elem.getAttribute('data-maxlength');  
+        const dataMaxlength = elem.getAttribute('data-maxlength');
         //data-maxlength 属性の値が存在し数値であれば
         if(dataMaxlength && !isNaN(dataMaxlength)) {
           //入力文字数を表示する p 要素を生成

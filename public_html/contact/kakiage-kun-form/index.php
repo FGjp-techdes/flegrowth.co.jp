@@ -168,8 +168,9 @@ include $doc_root .'/inc/head.php';
                 'type' => 'number',
                 'placeholder' => '予定ユーザー数'
             ])
-            ->addCheckbox('agree_terms', '<a href="'. $host_url .'/service/dx-web/kakiage-kun/terms/" style="color: #007aff; text-decoration: underline;" target="_blank">トライアル利用規約</a>と<a href="'. $host_url .'/privacypolicy/" style="color: #007aff; text-decoration: underline;" target="_blank">プライバシーポリシー</a>に同意する', [
-                'required' => true
+            ->addCheckbox('agree_terms', '<span class="terms-label"><a href="'. $host_url .'/service/dx-web/kakiage-kun/terms/" target="_blank">トライアル利用規約</a>と<a href="'. $host_url .'/privacypolicy/" target="_blank">プライバシーポリシー</a>に同意する</span>', [
+                'required' => true,
+                'wrapper_class' => 'terms-container'
             ]);
 
             $form->display();

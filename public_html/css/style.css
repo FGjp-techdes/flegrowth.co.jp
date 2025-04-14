@@ -4876,3 +4876,73 @@ padding-bottom:15px;
     }
 }
 
+.form-group label .error-js {
+    font-size: var(--font14px);
+    line-height: 1;
+    padding: 1px 5px 2px;
+    color: #AA2525;  /* 【必須】と同じ赤色を文字色として使用 */
+    margin-left: 10px;
+}
+
+.terms-container {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    text-align: left;
+}
+
+.terms-container input[type="checkbox"] {
+    margin-top: 0.25em; /* テキストと縦位置を揃える */
+    width: auto;
+    flex-shrink: 0;
+}
+
+.terms-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+/* リンクスタイルの維持 */
+.terms-label a {
+    color: #007aff;
+    text-decoration: underline;
+}
+
+/* 必須マークの位置調整 */
+.terms-label .mst {
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* モバイル対応 */
+@media screen and (max-width: 750px) {
+    .terms-container {
+        padding: 0 15px;
+    }
+}
+
+/* 送信ボタンのスタイル */
+.btn-submit {
+    transition: all 0.3s ease;
+}
+
+/* 送信ボタンの無効化状態のスタイル */
+.btn-submit[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+    background-color: #ccc !important;
+}
+
+/* 送信ボタンの有効化状態のスタイル */
+.btn-submit:not([disabled]) {
+    opacity: 1;
+    pointer-events: auto;
+    background-color: #0066CC;
+}
+
+
+
