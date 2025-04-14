@@ -28,9 +28,24 @@ $user_count = isset($_SESSION['user_count']) ? $_SESSION['user_count'] : '';
 // マイク必要の有無の文字列を事前に設定
 $need_mic_text = $need_mic ? '必要' : '不要';
 
+// 空の値の場合のデフォルト値を設定
+$monthly_hours_display = empty($monthly_hours) ? '-' : $monthly_hours . '時間';
+$user_count_display = empty($user_count) ? '-' : $user_count . '名';
+
 // メール本文の作成
 $body = <<<EOT
-かき上げクンお問い合わせフォームより以下の内容で申し込みがありました。
+お客様各位
+この度は、弊社の書きあげクンのトライアルにお申し込みいただき、誠にありがとうございます。
+
+◇今後の流れ
+営業担当からのご連絡: 近日中に弊社営業担当者よりお電話またはメールにてご連絡させていただき、ご要望やご利用環境などについてヒアリングさせていただきます。
+トライアル開始: ヒアリング後、ご希望の開始日からトライアルをスタートいたします。
+トライアル期間: 開始日より10日間
+文字起こし時間制限: 8時間
+
+◇ご入力いただいた情報
+ご申込み時にいただきました以下の情報をもとに、お客様の業務に最適化したトライアル環境を準備いたします：
+
 
 【会社名】
 {$company}
@@ -63,10 +78,22 @@ $body = <<<EOT
 {$need_mic_text}
 
 【月間予測利用時間】
-{$monthly_hours}時間
+{$monthly_hours_display}
 
 【利用予定ユーザー数】
-{$user_count}名
+{$user_count_display}
+
+
+◇トライアル終了後について
+トライアル終了前に、継続利用に関するご連絡を致します。ご継続いただける場合は、その旨いただければと存じます。トライアル期間中に作成されたデータは、お手続き完了後もそのままご利用いただけます。
+弊社の書きあげクンが、お客様のお役に立てることを心より願っております。
+何かご不明な点がございましたら、お気軽にお問い合わせください。
+
+-----------------------------------------------------------------------
+株式会社FleGrowth
+〒150-6028　東京都渋谷区恵比寿4-20-3　恵比寿ガーデンプレイスタワー28階
+TEL: 03-6736-9870
+URL: https://flegrowth.co.jp/
 EOT;
 
 try {
@@ -82,23 +109,33 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'kakiagekun-contact@flegrowth.co.jp'; // Gmailアドレス
-    $mail->Password = 'nvyl vodu bnke vbha'; // パスワード メーリングリストのため存在しない
+    $mail->Username = 'kakiagekun-contact@flegrowth.co.jp';
+    $mail->Password = 'nvyl vodu bnke vbha';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587; //SSLの場合 465
     $mail->CharSet = 'UTF-8';
 
-    // 送信元・送信先の設定
+    // 管理者宛てのメール送信
     $mail->setFrom($email, $name);
     $mail->addAddress('kakiagekun-contact@flegrowth.co.jp');
     $mail->addReplyTo($email, $name);
-
-    // メール内容の設定
-    $mail->Subject = '書きあげクン お問い合わせ';
+    $mail->Subject = '書きあげクントライアルお申し込みがありました';
     $mail->Body = $body;
+    $result_admin = $mail->send();
 
-    // メール送信
-    $result = $mail->send();
+    // メールオブジェクトをクリア
+    $mail->clearAddresses();
+    $mail->clearReplyTos();
+
+    // ユーザー宛ての自動返信メール
+    $mail->setFrom('kakiagekun-contact@flegrowth.co.jp', '株式会社FleGrowth');
+    $mail->addAddress($email, $name);
+    $mail->Subject = '書きあげクントライアルお申し込みありがとうございます';
+    $mail->Body = $body;
+    $result_user = $mail->send();
+
+    // 両方のメールが成功した場合のみ true
+    $result = $result_admin && $result_user;
     
     // デバッグ出力を取得
     $debug_output = ob_get_clean();
@@ -128,8 +165,8 @@ session_destroy();
 <html lang="ja">
 <head>
 <?php 
-$pagetitle = 'かき上げクン お問合せ - 送信完了';
-$description = 'かき上げクンについてのお問合せ - 送信完了画面';
+$pagetitle = '書きあげクン お問合せ - 送信完了';
+$description = '書きあげクンについてのお問合せ - 送信完了画面';
 require_once '../../inc/vars.php';
 include($doc_root.'/inc/head.php');
 ?>
@@ -143,12 +180,14 @@ include($doc_root.'/inc/head.php');
 <main id="main">
     <section class="section-head bk-changer-before bk-change-bk">
         <ul class="breadcrumb">
-            <li><a href="/">TOP</a></li>
-            <li><a href="/kakiage-kun/">かき上げクン</a></li>
-            <li class="current">お問合せ 送信完了</li>
+            <li><a href="<?= $host_url; ?>/">TOP</a></li>
+            <li><a href="<?= $host_url; ?>/service/">サービス</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/">DX支援・Web制作</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/">書きあげクン</a></li>
+            <li class="current">無料トライアル 送信完了</li>
         </ul>
-        <h1 class="section-head-ttl wrap">かき上げクン お問合せ</h1>
-        <p class="section-head-subttl wrap">Contact Us</p>
+        <h1 class="section-head-ttl wrap">書きあげクン無料トライアル<br>申し込みフォーム</h1>
+        <p class="section-head-subttl wrap">Kakiage-kun Trial</p>
     </section>
     <section class="overhang-wrap sec-bk">
         <span class="overhang-spacer"></span>
@@ -156,14 +195,14 @@ include($doc_root.'/inc/head.php');
             <div class="form-step"><img src="<?= $host_url; ?>/img/contact/form3.svg" alt="送信完了"></div>
             <?php if ($result): ?>
             <h2>送信が完了しました</h2>
-            <p>お問い合わせありがとうございます。<br>
+            <p>書きあげクンのトライアルお申し込みありがとうございます。<br>
             内容を確認の上、担当者より順次ご連絡させていただきます。</p>
             <?php else: ?>
             <h2>送信に失敗しました</h2>
             <p>申し訳ございませんが、時間をおいて再度お試しください。</p>
             <?php endif; ?>
             <div class="form-btn-wrap">
-                <a href="/kakiage-kun/" class="btn-back">かき上げクントップへ戻る</a>
+                <a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/" class="btn-back">書きあげクントップへ戻る</a>
             </div>
         </div>
         <span class="overhang-spacer"></span>

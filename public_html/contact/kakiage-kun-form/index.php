@@ -36,8 +36,8 @@ $ticket = $_SESSION[ 'ticket' ];
 <html lang="ja">
 <head>
 <?php
-$pagetitle = 'かき上げクン お問合せ';
-$description = 'かき上げクンについてのお問合せはこちらから';
+$pagetitle = '書きあげクン お問合せ';
+$description = '書きあげクンについてのお問合せはこちらから';
 require_once '../../inc/vars.php';
 include $doc_root .'/inc/head.php';
 
@@ -53,12 +53,14 @@ include $doc_root .'/inc/head.php';
     <!-- Head -->
     <section class="section-head bk-changer-before bk-change-bk">
         <ul class="breadcrumb">
-            <li><a href="/">TOP</a></li>
-            <li><a href="/kakiage-kun/">かき上げクン</a></li>
-            <li class="current">お問合せ</li>
+            <li><a href="<?= $host_url; ?>/">TOP</a></li>
+            <li><a href="<?= $host_url; ?>/service/">サービス</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/">DX支援・Web制作</a></li>
+            <li><a href="<?= $host_url; ?>/service/dx-web/kakiage-kun/">書きあげクン</a></li>
+            <li class="current">無料トライアル お申込みフォーム</li>
         </ul>
-        <h1 class="section-head-ttl wrap">かき上げクン お問合せ</h1>
-        <p class="section-head-subttl wrap">Contact Us</p>
+        <h1 class="section-head-ttl wrap">書きあげクン無料トライアル<br>申し込みフォーム</h1>
+        <p class="section-head-subttl wrap">Kakiage-kun Trial</p>
     </section>
     <!-- Overhang layout -->
     <section class="overhang-wrap sec-bk">
@@ -106,7 +108,7 @@ include $doc_root .'/inc/head.php';
             <!-- 既存のフォーム部分 -->
             <h2 class="kakiage-description__title">トライアルのお申込み</h2>
             <div class="form-step"><img src="<?= $host_url; ?>/img/contact/form1.svg" alt="フォーム入力"></div>
-            <p>かき上げクンに関するお問い合わせは下記フォームよりお願いいたします。<br>
+            <p>書きあげクン無料トライアルへの申し込みは下記フォームよりお願いいたします。<br>
             内容を確認の上、担当者よりご連絡させていただきます。</p>
             <?php
             $form = new Form('form');
@@ -166,8 +168,9 @@ include $doc_root .'/inc/head.php';
                 'type' => 'number',
                 'placeholder' => '予定ユーザー数'
             ])
-            ->addCheckbox('agree_terms', 'トライアル利用規約とプライバシーポリシーに同意する', [
-                'required' => true
+            ->addCheckbox('agree_terms', '<span class="terms-label"><a href="'. $host_url .'/service/dx-web/kakiage-kun/terms/" target="_blank">トライアル利用規約</a>と<a href="'. $host_url .'/privacypolicy/" target="_blank">プライバシーポリシー</a>に同意する</span>', [
+                'required' => true,
+                'wrapper_class' => 'terms-container'
             ]);
 
             $form->display();
